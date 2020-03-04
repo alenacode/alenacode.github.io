@@ -94,8 +94,8 @@
     var zoomlevel = 0.5;
 
     var r = gl.getUniformLocation(program, "r");
-    var rext = 2.0;
-    gl.uniform1f(r, 2.0)
+    var rext = 10.0;
+    gl.uniform1f(r, 1.0)
     var zoom = document.getElementById("zoom")
     zoom.addEventListener('input', function(e) {
         rext = 1 / logslider(e.target.value)
