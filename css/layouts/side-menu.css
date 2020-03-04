@@ -1,10 +1,16 @@
 body {
     color: #777;
+      font-family: 'Montserrat', sans-serif;
+
 }
 
 .pure-img-responsive {
     max-width: 100%;
     height: auto;
+}
+
+li a {
+    transition: 0.3s ease-out;
 }
 
 /*
@@ -29,12 +35,12 @@ This is the parent `<div>` that contains the menu and the content area.
     padding-left: 0;
 }
     #layout.active #menu {
-        left: 150px;
-        width: 150px;
+        left: 200px;
+        width: 200px;
     }
 
     #layout.active .menu-link {
-        left: 150px;
+        left: 200px;
     }
 /*
 The content `<div>` is where all your content goes.
@@ -80,8 +86,8 @@ appears on the left side of the page.
 */
 
 #menu {
-    margin-left: -150px; /* "#menu" width */
-    width: 150px;
+    margin-left: -200px; /* "#menu" width */
+    width: 200px;
     position: fixed;
     top: 0;
     left: 0;
@@ -216,21 +222,21 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 
     #layout {
-        padding-left: 150px; /* left col width "#menu" */
+        padding-left: 200px; /* left col width "#menu" */
         left: 0;
     }
     #menu {
-        left: 150px;
+        left: 200px;
     }
 
     .menu-link {
         position: fixed;
-        left: 150px;
+        left: 200px;
         display: none;
     }
 
     #layout.active .menu-link {
-        left: 150px;
+        left: 200px;
     }
 }
 
@@ -243,6 +249,35 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     */
     #layout.active {
         position: relative;
-        left: 150px;
+        left: 250px;
     }
+}
+
+.pure-menu-button {
+    margin-top: 420px;
+
+  text-decoration: none;
+  outline: none;
+  display: inline-block;
+  width: 180px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 45px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0,0,0,.1);
+  transition: .3s;
+}
+
+.pure-menu-button:hover {
+  background: #00BFFF;
+  box-shadow: 0 15px 20px rgba(0, 191, 255, .4);
+  color: white;
+  transform: translateY(-3px);
 }
