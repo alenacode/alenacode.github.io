@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/layouts/side-menu.css">     
+    <style>
+        .slidecontainer {
+            width: 100%;
+        }
+
+        .slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 15px;
+            border-radius: 5px;
+            background: #888;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+
+        .slider:hover {
+            opacity: 1;
+        }
+
+        .slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #00BFFF;
+            cursor: pointer;
+        }
+
+        .slider::-moz-range-thumb {
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: #00BFFF;
+            cursor: pointer;
+        }
+        canvas { 
+          display: block;
+          width: 100%;
+          height: 100%;
+        }
+
+    </style> 
+</head>
+<body>
+
+<div id="layout">
+    <!-- Menu toggle -->
+    <a href="#menu" id="menuLink" class="menu-link">
+        <!-- Hamburger icon -->
+        <span></span>
+    </a>
+
+    <div id="menu">
+        <div class="pure-menu">
+            <a class="pure-menu-heading" href="#">Fractals</a>
+
+            <ul class="pure-menu-list">
+                <li class="pure-menu-item"><a href="Mondelbrot.html" class="pure-menu-link">Mandelbrot</a></li>
+                <li class="pure-menu-item"><a href="Julia.html" class="pure-menu-link">Julia</a></li>
+                <li class="pure-menu-item"><a href="Newton.html" class="pure-menu-link">Newton</a></li>
+                <li class="pure-menu-item menu-item-divided pure-menu-selected">
+                    <a href="#" class="pure-menu-link">Services</a>
+                </li>
+                <li class="pure-menu-item button"><a href="personalisation.html" class="pure-menu-link pure-menu-button">Personalisation</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="main">
+        <div class="header">
+            <h1>Множество Мандельброта</h1>
+            <h2>Информация о множестве</h2>
+        </div>
+
+        <div class="content">
+            <h2 class="content-subhead">Визуализация</h2>
+            <canvas width = 900 height = 400 id='mandelwat'></canvas>
+            <div class="slidecontainer">
+                <input id="zoom" type="range" min="1" max="100" value="10" class="slider">
+            </div>
+
+
+        <script id="vertex-shader" type="notjs">
+            attribute vec2 a_position;
+            void main() {
+                gl_Position = vec4(a_position, 0, 1);
+            }
+        </script>
+        <script id="fragment-shader" type="x-shader/x-fragment">// <![CDATA[
+
+            precision mediump float;
+            uniform vec2 xy;
+            uniform vec2 center;
+            uniform float r;
+
+            uniform float wat;
+            uniform int iterations;
+            uniform float bailout;
+
+            void main() {
+                vec3 col = vec3(0.0);
+
+                vec2 p = -(xy - 2.0 * gl_FragCoord.xy) / xy.y * r + center;
+
+                float l = 1.0;
+
+                vec2 z  = vec2(0.0);
+                vec2 c = vec2(p.x, p.y);
+                for(int i = 0; i < 100000; i++ ) {
+                    z = vec2( z.x*z.x - z.y*z.y, 2.0*z.x*z.y ) + c;
+                    if( dot(z,z)>(bailout) ) {
+                        col += 0.5 + 0.5*cos(l * wat);
+                        break;
+                    }
+                    if( i > iterations ) { break; }
+                    l += 1.0;
+                }
+
+                gl_FragColor = vec4( col, 1.0 );
+            }
+        </script>
+        <script src='js/Mandelbrot.js'></script>
+        </div> 
+    </div>
+</div>
+
+<script src="js/ui.js"></script>
+
+</body>
+</html>
