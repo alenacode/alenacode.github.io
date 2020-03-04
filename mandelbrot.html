@@ -3,58 +3,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="A layout example with a side menu that hides on mobile, just like the Pure website.">   
-    <title>FRACTALS</title>     
+    <title>FRACTALS</title>   
+
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/layouts/side-menu.css">     
+    <link rel="stylesheet" href="css/layouts/side-menu.css">   
+    <link rel="stylesheet" href="css/layouts/slider.css">     
+  
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src = "js/loader.js"></script> 
-    <style>
-        .slidecontainer {
-            width: 100%;
-            margin-top: 10px;
-        }
+    <script src="js/loader.js"></script> 
+    <script src="js/ui.js"></script>
 
-        .slider {
-            -webkit-appearance: none;
-            width: 100%;
-            height: 15px;
-            border-radius: 5px;
-            background: #888;
-            outline: none;
-            opacity: 0.7;
-            -webkit-transition: .2s;
-            transition: opacity .2s;
-        }
-
-        .slider:hover {
-            opacity: 1;
-        }
-
-        .slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            appearance: none;
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #00BFFF;
-            cursor: pointer;
-        }
-
-        .slider::-moz-range-thumb {
-            width: 25px;
-            height: 25px;
-            border-radius: 50%;
-            background: #00BFFF;
-            cursor: pointer;
-        }
-
-        canvas { 
-          display: block;
-          width: 100%;
-          height: 100%;
-        }
-    </style> 
 </head>
 <body>
 
@@ -73,14 +31,13 @@
                 <input id="zoom" type="range" min="1" max="100" value="5" class="slider">
             </div>
 
-
         <script id="vertex-shader" type="notjs">
             attribute vec2 a_position;
             void main() {
                 gl_Position = vec4(a_position, 0, 1);
             }
         </script>
-        <script id="fragment-shader" type="x-shader/x-fragment">// <![CDATA[
+        <script id="fragment-shader" type="x-shader/x-fragment" src = "js/shader.js">// <![CDATA[
             precision mediump float;
             uniform vec2 xy;
             uniform vec2 center;
@@ -116,8 +73,5 @@
         </div> 
     </div>
 </div>
-
-<script src="js/ui.js"></script>
-
 </body>
 </html>
