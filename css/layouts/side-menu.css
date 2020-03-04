@@ -254,10 +254,13 @@ Hides the menu at `48em`, but modify this based on your app's needs.
 }
 
 .pure-menu-button {
-    margin: 420px auto;
+display: block;
+margin-left: auto;
+margin-right: auto;
+margin-top: 400px;
+
   text-decoration: none;
   outline: none;
-  display: inline-block;
   width: 180px;
   height: 45px;
   line-height: 45px;
