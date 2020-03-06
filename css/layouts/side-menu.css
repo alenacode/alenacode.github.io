@@ -1,5 +1,15 @@
+:root {
+    --primary-bg-color: #1f8dd6;
+    --primary-color: #888;
+}
+
+.hero {
+    background: var(--primary-bg-color);
+    color: var(--primary-color);
+}
+
 body {
-    color: #777;
+    color: var(--primary-color);
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -100,7 +110,7 @@ appears on the left side of the page.
     All anchors inside the menu should be styled like this.
     */
     #menu a {
-        color: #999;
+        color: var(--primary-color);
         border: none;
         padding: 0.6em 0 0.6em 0.6em;
     }
@@ -136,7 +146,7 @@ appears on the left side of the page.
     */
     #menu .pure-menu-selected,
     #menu .pure-menu-heading {
-        background: #1f8dd6;
+        background: var(--primary-bg-color);
     }
         /*
         This styles a link within a selected menu item `<li>`.
@@ -226,6 +236,7 @@ Hides the menu at `48em`, but modify this based on your app's needs.
         padding-left: 200px; /* left col width "#menu" */
         left: 0;
     }
+
     #menu {
         left: 200px;
     }
@@ -254,34 +265,32 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     }
 }
 
-
 .pure-menu-button {
-	display: block;
+    display: block;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 380px;
-
-  text-decoration: none;
-  outline: none;
-  width: 180px;
-  height: 45px;
-  line-height: 45px;
-  border-radius: 45px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 3px;
-  font-weight: 600;
-  color: #524f4e;
-  background: white;
-  box-shadow: 0 8px 15px rgba(0,0,0,.1);
-  transition: .3s;
+	margin-top: 440px;
+    text-decoration: none;
+    outline: none;
+    width: 180px;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 45px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 3px;
+    font-weight: 600;
+    color: var(--primary-color);
+    background: white;
+    box-shadow: 0 8px 15px rgba(0,0,0,.1);
+    transition: .3s;
 }
 
 .pure-menu-button:hover {
-  background: #00BFFF;
-  box-shadow: 0 15px 20px rgba(0, 191, 255, .4);
-  color: white;
-  transform: translateY(-3px);
+    background: var(--primary-bg-color);
+    box-shadow: 0 15px 20px var(--primary-bg-color);
+    color: var(--primary-color);
+    transform: translateY(-3px);
 }
