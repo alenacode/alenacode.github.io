@@ -25,7 +25,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #00BFFF;
+    background: var(--primary-bg-color);
     cursor: pointer;
 }
 
@@ -33,7 +33,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #00BFFF;
+    background: var(--primary-bg-color);
     cursor: pointer;
 }
 
