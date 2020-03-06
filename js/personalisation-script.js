@@ -5,7 +5,6 @@ window.onload = function(){
       window.sessionStorage.setItem(keyC, root.style.getProperty('--primary-color'));
       window.sessionStorage.setItem(keyBC, root.style.getProperty('--primary-bg-color'));
   }
-  alert(window.sessionStorage.getItem(valC))
   root.style.setProperty(keyC, valC);
   root.style.setProperty(keyBC, valBC);
 };
@@ -21,7 +20,6 @@ $(document).ready(function () {
     keys.forEach(key => {
       root.style.setProperty(key, cssVars[key]);
       window.sessionStorage.setItem(key, cssVars[key]);
-      alert(window.sessionStorage.getItem(key))
     });
   }
   
