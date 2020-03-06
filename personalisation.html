@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FRACTALS</title>    
+    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/layouts/side-menu.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/1.0.4/tailwind.min.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+</head>
+<body>
+
+<div id="layout">
+<a href="#menu" id="menuLink" class="menu-link">
+<!-- Hamburger icon -->
+<span></span>
+</a>
+
+<div id="menu">
+<div class="pure-menu">
+    <a class="pure-menu-heading" href="index.html">Fractals</a>
+
+    <ul class="pure-menu-list">
+        <li class="pure-menu-item"><a href="mandelbrot.html" class="pure-menu-link">Mandelbrot</a></li>
+        <li class="pure-menu-item"><a href="julia.html" class="pure-menu-link">Julia</a></li>
+        <li class="pure-menu-item button"><a href="personalisation.html" class="pure-menu-link pure-menu-button">Personalisation</a></li>
+    </ul>
+</div>
+</div>    
+   
+    <div id="main">
+        <div class="header">
+            <h1>Персонализация</h1>
+            <h2>Поменяйте оформление сайта</h2>
+        </div>
+
+        <div class="content">
+             <div class="bg-white left-0 p-4 right-0 text-grey">
+                <div class="flex items-center">
+                    <div class="flex flex-wrap mr-8 items-center justify-between">
+                        <h3 class="font-bold text-sm mr-3">Основные темы</h3>
+                        <div class="flex">
+                            <span class="cursor-pointer w-10 h-10 inline-block rounded-full mr-4" data-bg-color="#b84130" data-color="#888"
+                                style="background-color: #b84130">&nbsp;</span>
+                            <span class="cursor-pointer w-10 h-10 inline-block rounded-full mr-4" data-bg-color="#1f8dd6" data-color="#888"
+                                style="background-color: #1f8dd6">&nbsp;</span>
+                            <span class="cursor-pointer w-10 h-10 inline-block rounded-full" data-bg-color="#FFD5CD" data-color="#888"
+                                style="background-color: #FFD5CD">&nbsp;</span>
+                        </div>
+                    </div>
+                    <h3 class="font-bold mr-4 text-sm">Персонализация</h3>
+                    <div class="flex items-center">
+                        <div class="flex items-center mr-3">
+                            <label class="text-sm mr-2">Фон:</label>
+                            <input class="cursor-pointer h-10 outline-none rounded-full w-10 input-color-picker" type="color" data-id="bg-color"
+                                name="Background">
+                        </div>
+                        <div class="flex items-center">
+                            <label class="text-sm mr-2">Цвет текста:</label>
+                            <input class="cursor-pointer h-10 outline-none rounded-full w-10 input-color-picker" type="color" data-id="color"
+                                name="Color">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <section class="hero h-screen">
+                <div class="h-full flex justify-center items-center">
+                    <h1 class="text-5xl font-bold"><a data-color="#fff">Текст</a></h1>
+                </div>
+            </section>
+        </div>
+    </div>
+    </div>
+
+<script src="js/ui.js"></script>
+<script src="js/personalisation-script.js"></script>
+
+</body>
+</html>
