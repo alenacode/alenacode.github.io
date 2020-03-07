@@ -13,7 +13,6 @@
     <script src="js/loader.js"></script> 
 </head>
 <body>
-
 <div id="layout">
     <div id="includedMenu"></div>
     <div id="main">
@@ -23,35 +22,21 @@
         </div>
 
         <div class="content">
-            <h2 class="content-subhead">How to use this layout</h2>
+            <h2 class="content-subhead">Фракталы</h2>
             <p>
-                To use this layout, you can just copy paste the HTML, along with the CSS in <a href="/css/layouts/side-menu.css" alt="Side Menu CSS">side-menu.css</a>, and the JavaScript in <a href="/js/ui.js">ui.js</a>. The JS file uses vanilla JavaScript to simply toggle an <code>active</code> class that makes the menu responsive.
+                Это самая крупная группа фракталов. Фракталы такого типа возникают при исследовании нелинейных динамических систем (отсюда и название).
+            </p>
+            <p>
+                Известно, что нелинейные динамические системы обладают несколькими устойчивыми состояниями. То состояние, в котором оказалась динамическая система после некоторого числа итераций, зависит от ее начального состояния. Поэтому каждое устойчивое состояние (или как говорят - аттрактор) обладает некоторой областью начальных состояний, из которых система обязательно попадет в рассматриваемые конечные состояния. Таким образом фазовое пространство системы разбивается на области притяжения аттракторов. Если фазовым является двухмерное пространство, то окрашивая области притяжения различными цветами, можно получить цветовой фазовый портрет этой системы (итерационного процесса). Меняя алгоритм выбора цвета, можно получить сложные фрактальные картины с причудливыми многоцветными узорами. Неожиданностью для математиков стала возможность с помощью примитивных алгоритмов порождать очень сложные нетривиальные структуры.
             </p>
 
-            <h2 class="content-subhead">Now Let's Speak Some Latin</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                Поведение такой системы можно описать комплексной нелинейной функцией (многочленом) f(z). Возьмем какую-нибудь начальную точку z0 на комплексной плоскости. Теперь рассмотрим бесконечную последовательность чисел на комплексной плоскости, каждое следующее из которых получается из предыдущего: z0, z1 = f(z0), z2 = f(z1), ... zn+1 = f(zn). В зависимости от начальной точки z0 такая последовательность может вести себя по-разному: стремиться к бесконечности при n → ∞; сходиться к какой-то конечной точке; циклически принимать ряд фиксированных значений; возможны и более сложные варианты.
             </p>
 
-            <div class="pure-g">
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm3.staticflickr.com/2875/9069037713_1752f5daeb.jpg" alt="Peyto Lake">
-                </div>
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm3.staticflickr.com/2813/9069585985_80da8db54f.jpg" alt="Train">
-                </div>
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm6.staticflickr.com/5456/9121446012_c1640e42d0.jpg" alt="T-Shirt Store">
-                </div>
-                <div class="pure-u-1-4">
-                    <img class="pure-img-responsive" src="http://farm8.staticflickr.com/7357/9086701425_fda3024927.jpg" alt="Mountain">
-                </div>
-            </div>
-
-            <h2 class="content-subhead">Try Resizing your Browser</h2>
             <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-            </p>
+                Таким образом, любая точка z комплексной плоскости имеет свой характер поведения при итерациях функции f(z), а вся плоскость делится на части. При этом точки, лежащие на границах этих частей, обладают таким свойством: при сколь угодно малом смещении характер их поведения резко меняется (такие точки называют точками бифуркации). Так вот, оказывается, что множества точек, имеющих один конкретный тип поведения, а также множества бифуркационных точек часто имеют фрактальные свойства. Это и есть множества Жюлиа для функции f(z).
+            </p>        
         </div>
     </div>
 </div>	
