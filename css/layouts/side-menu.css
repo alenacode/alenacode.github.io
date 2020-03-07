@@ -10,6 +10,7 @@
 
 body {
     color: var(--primary-color);
+    text-align: justify;
     font-family: 'Montserrat', sans-serif;
 }
 
@@ -112,7 +113,7 @@ appears on the left side of the page.
     #menu a {
         color: var(--primary-color);
         border: none;
-        padding: 0.6em 0 0.6em 0.6em;
+        padding: 0.6em 0 0.6em 0.6em !important;
     }
 
     /*
@@ -161,7 +162,7 @@ appears on the left side of the page.
     #menu .pure-menu-heading {
         font-size: 110%;
         color: #fff;
-        margin: 0;
+        margin: 0 !important;
     }
 
 /* -- Dynamic Button For Responsive Menu -------------------------------------*/
@@ -182,11 +183,11 @@ small screens.
     left: 0; /* "#menu width" */
     background: #000;
     background: rgba(0,0,0,0.7);
-    font-size: 10px; /* change this value to increase/decrease button size */
+    font-size: 10px !important;; /* change this value to increase/decrease button size */
     z-index: 10;
     width: 2em;
-    height: auto;
-    padding: 2.1em 1.6em;
+    height: auto !important;
+    padding: 2.1em 1.6em !important;
 }
 
     .menu-link:hover,
@@ -203,19 +204,19 @@ small screens.
     .menu-link span:before,
     .menu-link span:after {
         background-color: #fff;
-        width: 100%;
-        height: 0.2em;
+        width: 100% !important;
+        height: 0.2em !important;
     }
 
         .menu-link span:before,
         .menu-link span:after {
             position: absolute;
-            margin-top: -0.6em;
+            margin-top: -0.6em !important;
             content: " ";
         }
 
         .menu-link span:after {
-            margin-top: 0.6em;
+            margin-top: 0.6em !important;
         }
 
 
@@ -269,12 +270,12 @@ Hides the menu at `48em`, but modify this based on your app's needs.
     display: block;
 	margin-left: auto;
 	margin-right: auto;
-	margin-top: 440px;
+	margin-top: 440px !important;
     text-decoration: none;
     outline: none;
     width: 180px;
-    height: 45px;
-    line-height: 45px;
+    height: 45px !important;
+    line-height: 45px !important;
     border-radius: 45px;
     font-family: 'Montserrat', sans-serif;
     font-size: 11px;
