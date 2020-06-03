@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randomiser</title>    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="blog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Randomiser</h1>
+            <h2 class="brand-tagline">Here you can analyze the methods</h2>
+            <form class="pure-form pure-form-stacked">
+                <fieldset>
+                    <label for="state">Generator</label>
+                    <select id="sel" required>
+                        <option value="" disabled selected>Select method</option>
+                        <option value="1">Middle-square method</option>
+                        <option value="2">Median method</option>
+                        <option value="3">Mixing method</option>
+                        <option value="4">Linear congruent method</option>
+                    </select>
+                </fieldset>
+                <label for="number">Number of intervals</label>
+                <input type="text" maxlength="5" value="10" id = "intervals">
+            </form>
+            <button id = "analysis" class="pure-button">Start analysis</button>
+            <button class="pure-button" onclick="window.location.href='index.html'">Randomizer</button>
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+        <div>
+            <div class="posts">
+                
+                <h1 class="content-subhead">quality analysis</h1>
+                <section class="post">
+                    <div class="post-description">
+                        <div class="rows">
+                            <div class="cols">
+                                <canvas id="myChart3"></canvas>
+                                 <font size="2" face="Arial" class="ch1" id="centered">
+                                        <p align="center" style="white-space: pre-wrap;">Mx = <span id="Mx100"></span>      Dx = <span id="Dx100"></span></p>
+                                </font>
+                            </div>
+                            <div class="cols">
+                                <canvas id="myChart4"></canvas>
+                                 <font size="2" face="Arial" class="ch1">
+                                    <p align="center" style="white-space: pre-wrap;">Mx = <span id="Mx10000"></span>        Dx = <span id="Dx10000"></span></p>
+                                </font>
+                            </div>
+                        </div>  
+                        <div class="values">
+                            <font size="2" face="Arial" class="ch1">
+                                <div align="center">Values:</div>                           
+                                <textarea name="comment" id="out1" class="results" style="width:95%; height: 200px;"></textarea>
+                            </font>
+                            <font size="2" face="Arial" class="ch1">
+                                <div align="center">Values:</div>                           
+                                <textarea name="comment" id="out2" class="results" style="width:95%; height: 200px;"></textarea>
+                            </font>
+                        </div>
+                        <canvas id="myChart5"></canvas>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>        
+                        <script src="analysis.js"></script>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

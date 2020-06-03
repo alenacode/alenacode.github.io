@@ -10,7 +10,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 </head>
 <body>
-
 <div id="layout" class="pure-g">
     <div class="sidebar pure-u-1 pure-u-md-1-4">
         <div class="header">
@@ -31,30 +30,35 @@
                 <input type="text" maxlength="5" value="10" id = "number">
             </form>
             <button id = "randomizeData" class="pure-button">Randomize</button>
+            <button id = "randomizeData" class="pure-button" onclick="window.location.href='analysis.html'">Quality analysis</button>
         </div>
     </div>
 
     <div class="content pure-u-1 pure-u-md-3-4">
-        <div>
             <div class="posts">
-                <h1 class="content-subhead">result of generation</h1>
+                <h1 class="content-subhead">Made by Korol Alena</h1>
                 <section class="post">
                     <div class="post-description">
-                        <canvas id="shared"></canvas>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
-                        <script id = "scrpt" src="chart.js"></script>
+                        <div class="charts">
+                            <canvas id="myChart1"></canvas>
+                            <canvas id="myChart2"></canvas>
+                        </div>                        
+                        <div class="values">
+                            <font size="3" face="Arial" class="ch1">
+                                <div>Values:</div>                           
+                                <textarea name="comment" id="results"style="width:95%; height: 200px;"></textarea>
+                            </font>
+                            <font size="3" face="Arial" class="ch2">
+                                <div>Initial Values:</div>                           
+                                <div id="initVals"></div>
+                            </font>
+                        </div>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>        
+                        <script src="chart.js"></script>
                     </div>
                 </section>
             </div>
-            <div class="footer">
-                <div class="pure-menu pure-menu-horizontal">
-                   <p>Made by Korol Alena</p>
-                </div>
-            </div>
         </div>
-    </div>
 </div>
-
-
 </body>
 </html>
