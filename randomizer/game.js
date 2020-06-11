@@ -9,7 +9,6 @@ window.onload = () => {
 }
 
 function playing() {
-    console.log(check("5567"));
 	if(count <= 0) {
         alert("GAME OVER! SECRET NUMBER IS " + secretNum + "\nLET'S START A NEW GAME - PUSH 'OK'");
   		location.reload(); 
@@ -36,6 +35,13 @@ function playing() {
     }
 }
 
+function check(str) {
+    for(var i = 0; i < str.length; i++)
+        if (str.split(str[i]).length - 1 > 1) 
+            return true;
+    return false;
+} 
+
 function getRand() {
     let Random = seed => {
         if(seed < 1)
@@ -53,14 +59,6 @@ function getRand() {
 
     return val;
 }
-
-
-function check(str) {
-    for(var i = 0; i < str.length; i++)
-        if (str.split(str[i]).length - 1 > 1) 
-            return true;
-    return false;
-} 
 
 function middle(x) {
     if(String(x).length%2 < 4)
