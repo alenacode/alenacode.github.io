@@ -23,7 +23,7 @@ h3 {
 }
 
 .sidebar {
-    background: rgb(61, 79, 93);
+    background: #333;
     color: #fff;
 }
 
@@ -38,7 +38,7 @@ h3 {
 }
 .brand-tagline {
     font-weight: 300;
-    color: rgb(176, 202, 219);
+    color: #888;
 }
 
 .content-subhead {
@@ -113,7 +113,8 @@ option[value=""][disabled] {
     display: block;
     margin-top: 20px;
     margin-left: auto;
-    margin-right: auto 
+    margin-right: auto;
+    border-radius: 30px; 
 }
 
 .values {
@@ -154,12 +155,133 @@ option[value=""][disabled] {
     margin: 20px;
 }
 
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#modalWin {
+    background: rgba(102, 102, 102, 0.5);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+}
+
+#modalWin:target {display: block;}
+
+
+* {box-sizing: border-box;}
+.transparent {
+    position: relative;
+    max-width: 400px;
+    padding: 60px 50px;
+    margin: 50px auto 0;
+    background: #333;
+    background-size: cover;
+}
+
+.transparent:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #333;
+}
+
+.form-inner {position: relative;}
+.form-inner h3 {
+    position: relative;
+    margin-top: 0;
+    color: #f5f5f5;
+    font-weight: 300;
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.form-inner h3:after {
+    content: "";
+    position :absolute;
+    left: 0;
+    bottom: -6px;
+    height: 2px;
+    width: 60px;
+    background: #f5f5f5;
+}
+
+.form-inner label {
+    display: block;
+    padding-left: 15px;
+    color: rgba(255,255,255,.6);
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+.form-inner input {
+    display: block;
+    width: 100%;
+    padding: 0 15px;
+    margin: 10px 0 15px;
+    border-width: 0;
+    line-height: 40px;
+    border-radius: 20px;
+    color: white;
+    background: rgba(255,255,255,.2);
+}
+
+.icon {
+    position: relative;
+    float: right;
+    color: #f5f5f5;
+}
+
+.asterisks {
+    color: #f5f5f5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 30px 0;
+}
+
+.text {
+    color: #f5f5f5;
+    margin: 20px 0 10px 0;
+    text-align: center;
+}
+
+.fa {
+      -webkit-transform: rotateY(-180deg);
+  -moz-transform: rotateY(-180deg);
+  -ms-transform: rotateY(-180deg);
+  transform: rotateY(-180deg);
+}
+
+.rotate {
+    -o-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.rotate:hover {
+    -o-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
+    -moz-transform: scaleX(-1);
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+}
 /*
-red: 'rgb(255, 99, 132)',
-orange: 'rgb(255, 159, 64)',
-yellow: 'rgb(255, 205, 86)',
-green: 'rgb(75, 192, 192)',
-blue: 'rgb(54, 162, 235)',
-purple: 'rgb(153, 102, 255)',
-grey: 'rgb(201, 203, 207)'
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
 */
+

@@ -7,7 +7,9 @@
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
     <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
     <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
 </head>
 <body>
 <div id="layout" class="pure-g">
@@ -30,7 +32,10 @@
                 <input type="text" maxlength="5" value="10" id = "number">
             </form>
             <button id = "randomizeData" class="pure-button">Randomize</button>
-            <button id = "randomizeData" class="pure-button" onclick="window.location.href='analysis.html'">Quality analysis</button>
+            <div class="buttons">
+            	<button id="randomizeData" class="pure-button" onclick="window.location.href='analysis.html'">Analysis</button>
+            	<button id="randomizeData" class="pure-button" onclick="window.location.href='#modalWin'">Game</button>
+            </div>                        
         </div>
     </div>
 
@@ -60,5 +65,29 @@
             </div>
         </div>
 </div>
+<div id="modalWin">
+	<form class="transparent" action="">
+    	<div class="form-inner">
+        <h3>Let's play<a href="index.html"><i class="icon fa fa-times"></i></a></h3>
+        <div class="asterisks">
+	        <span id="a0" class="rotate"><i class="fa fa-asterisk fa-2x" aria-hidden="true" ></i></span>
+			<span id="a1" class="rotate"><i class="fa fa-asterisk fa-2x" aria-hidden="true" ></i></span>
+			<span id="a2" class="rotate"><i class="fa fa-asterisk fa-2x" aria-hidden="true" ></i></span>
+			<span id="a3" class="rotate"><i class="fa fa-asterisk fa-2x" aria-hidden="true" ></i></span>	
+        </div>
+        <label for="num">Number</label>
+        <input id="num" type="number" placeholder="Введите число">
+        <label for="pos">Position</label>
+        <input id="pos" type="number" placeholder="Введите позицию числа">
+        <button id="but" class="pure-button" onclick="playing(); return false;">ATTEMPT</button>
+        <div class="text">
+        	Оставшееся количество попыток: <span id="attempts"></span>
+        </div>
+		</div>
+	</form>
+	<script src="game.js"></script>
+</div>
+
+
 </body>
 </html>
