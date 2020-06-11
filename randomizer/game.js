@@ -9,6 +9,7 @@ window.onload = () => {
 }
 
 function playing() {
+    console.log(check("5567"));
 	if(count <= 0) {
         alert("GAME OVER! SECRET NUMBER IS " + secretNum + "\nLET'S START A NEW GAME - PUSH 'OK'");
   		location.reload(); 
