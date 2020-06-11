@@ -44,12 +44,22 @@ function getRand() {
     };
 
     var val = Math.floor((Math.random() * (9000 - 1000 + 1000)) + 1000);
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 100; i++) {
         val = Random(val);
+        if (!check(String(val)))
+            return val; 
     }
 
     return val;
 }
+
+
+function check(str) {
+    for(var i = 0; i < str.length; i++)
+        if (str.split(str[i]).length - 1 > 1) 
+            return true;
+    return false;
+} 
 
 function middle(x) {
     if(String(x).length%2 < 4)
