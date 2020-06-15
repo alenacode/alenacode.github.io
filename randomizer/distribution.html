@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randomiser</title>    
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+</head>
+<body>
+<div id="layout" class="pure-g">
+    <div class="sidebar pure-u-1 pure-u-md-1-4">
+        <div class="header">
+            <h1 class="brand-title">Distribution functions</h1>
+            <form class="pure-form pure-form-stacked">
+                <br>
+                <label for="M">Expected value</label>
+                <input id="M" type="number" placeholder="Мат ожидание">
+                <br>
+                <label for="D">Variance</label>
+                <input id="D" type="number" placeholder="Дисперсия">      
+            </form>
+            <button id="analysis" class="pure-button">Get distribution</button>        
+            <button class="pure-button" onclick="window.location.href='index.html'">Back to main</button>          
+        </div>
+    </div>
+
+    <div class="content pure-u-1 pure-u-md-3-4">
+            <div class="posts">
+                <h1 class="content-subhead">distribution functions of normal and Poisson quantities</h1>
+                <section class="post">
+                    <div class="post-description">
+                        <canvas id="myChart1"></canvas>
+                        <canvas id="myChart2"></canvas>             
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>        
+                        <script src="distribution.js"></script>
+                    </div>
+                </section>
+            </div>
+        </div>
+</div>
+</body>
+</html>
