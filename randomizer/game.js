@@ -18,7 +18,7 @@ function playing() {
 	var position = document.getElementById('pos').value - 1;
 	var numInSecret = Number(String(secretNum).substring(position, position+1));
 
-    if(number > 9 || number < 0 || position < -1 || position > 3){
+    if(number > 9 || number < 0 || position < 0 || position > 3){
         document.getElementById('num').value = "";
         document.getElementById('pos').value = "";
         return true;
