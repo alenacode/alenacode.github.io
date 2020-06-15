@@ -79,7 +79,7 @@
         <input id="num" type="number" placeholder="Введите число">
         <label for="pos">Position</label>
         <input id="pos" type="number" placeholder="Введите позицию числа">
-        <button id="but" class="pure-button" onclick="playing(); return false;">ATTEMPT</button>
+        <button id="but" class="pure-button" onclick="if(playing() == true) alert('Число должно быть в диапазоне 0-9\nПозиция должна быть в диапазоне 1-4');">ATTEMPT</button>
         <div class="text">
         	Оставшееся количество попыток: <span id="attempts"></span>
         </div>

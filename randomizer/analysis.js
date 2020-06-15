@@ -1,26 +1,22 @@
 window.onload = change(10, 1);
 
 function change(intervals, method) {
-    var data = [];
     var intervalsArr = [];
     for(var j = 0.; j <= 1; j += (1/intervals).toFixed(2)*1 + 1e-16)
         intervalsArr.push(Number(String(j).substr(0, 3)));
-    
     intervalsArr.push(1);
 
     //  Метод срединных квадратов
     function midSquareMethod(amount) {
         var S1 = [];
         let Random = seed => {
-            if(seed < 0.1)
-                seed = getRand();
             seed = middle(seed*seed);
             return seed;
         };
 
         var tmp1 = getRand(), tmp2 = getRand();
         for (var i = 0; i < amount; i++) {
-            S1.push(tmp1 / 10**(String(tmp1).length));
+            S1.push(i%10 == 0 ? tmp1 / 10**(String(tmp1).length+1) : tmp1 / 10**(String(tmp1).length));
             tmp1 = Random(tmp1);
             tmp2 = Random(tmp2);
         }
@@ -32,8 +28,6 @@ function change(intervals, method) {
     function medianMethod(amount) {
         var S1 = [];
         let Random = (seed) => {
-            if(seed < 0.1)
-                seed = getRand()*getRand();
             seed = middle(seed);
             return seed;
         };
@@ -41,7 +35,7 @@ function change(intervals, method) {
         var s1 = getRand(),     s2 = getRand(),     tmp1 = Random(s1*s2);
         var s11 = getRand(),    s22 = getRand(),    tmp2 = Random(s11*s22);
         for (var i = 0; i < amount; i++) {
-            S1.push(tmp1 / 10**(String(tmp1).length));
+            S1.push(i%10 == 0 ? tmp1 / 10**(String(tmp1).length+1) : tmp1 / 10**(String(tmp1).length));
             s1 = s2;    s2 = tmp1;   tmp1 = Random(s1*s2);
             s11 = s22;  s22 = tmp2; tmp2 = Random(s11*s22);
         }
@@ -53,8 +47,6 @@ function change(intervals, method) {
     function mixingMethod(amount) {
         var S1 = [];
         let Random = (seed) => {
-            if(String(seed).length % 2 < 4)
-                seed = getRand();
             seed = String(seed);
             x1 = Number(seed.substr(2) + seed.substr(0, 2));
             x2 = Number(seed.substr(-2) + seed.substr(0, -2));
@@ -63,7 +55,7 @@ function change(intervals, method) {
 
         var tmp1 = getRand(), tmp2 = getRand();
         for (var i = 0; i < amount; i++) {
-            S1.push(tmp1 / 10**(String(tmp1).length));
+            S1.push(i%10 == 0 ? tmp1 / 10**(String(tmp1).length+1) : tmp1 / 10**(String(tmp1).length));
             tmp1 = Random(tmp1);
             tmp2 = Random(tmp2);
         }
@@ -126,7 +118,7 @@ function change(intervals, method) {
         return getAvg(getDoubleData(data), num) - Mx*Mx;
     }
 
-    function intervalMap (data) {
+    function getDataForChart(data) {
         var map = new Map();
 
         for(var j = 0.; j < intervalsArr.length; ++j){
@@ -138,12 +130,7 @@ function change(intervals, method) {
                 }
             }
         }
-       
-        return map;
-    }
 
-    function getDataForChart(data) {
-        var map = intervalMap(data); 
         var result = [];
         var i = 0;
 
@@ -159,7 +146,7 @@ function change(intervals, method) {
         var data = [];
         switch (method) {
           case 1:
-            data = midSquareMethod(amount);       
+            data = midSquareMethod(amount);   
             break;
           
           case 2:
@@ -174,7 +161,7 @@ function change(intervals, method) {
             data = linearCongruentMethod(amount);       
             break;
         }  
-
+        
         return data;
     }
 
@@ -190,8 +177,8 @@ function change(intervals, method) {
         var dt1 = data1.slice(), dt2 = data2.slice();
         document.getElementById('Mx100').innerHTML = getMx(dt1, 100).toFixed(5)/1;
         document.getElementById('Dx100').innerHTML = getDx(dt1, 100, getMx(dt1, 100)).toFixed(5)/1;
-        document.getElementById('Mx10000').innerHTML = getMx(dt2, 1000).toFixed(5)/1;
-        document.getElementById('Dx10000').innerHTML = getDx(dt2, 1000, getMx(dt2, 1000)).toFixed(5)/1;
+        document.getElementById('Mx10000').innerHTML = getMx(dt2, 10000).toFixed(5)/1;
+        document.getElementById('Dx10000').innerHTML = getDx(dt2, 10000, getMx(dt2, 10000)).toFixed(5)/1;
     }
 
     function getRg() {
@@ -216,8 +203,9 @@ function change(intervals, method) {
         return labels;
     }
 
-    function getElemets (amount, data) {
+    function getElemets (data) {
         var str = "";
+
         for(var j = 0; j < intervalsArr.length; ++j)
             for(var i = 0; i < data.length; ++i)
                 if(data[i] < intervalsArr[j+1] && data[i] > intervalsArr[j]) 
@@ -226,10 +214,10 @@ function change(intervals, method) {
         return str;
     }
 
-    var data1 = getDataForAnalysis(100), data2 = getDataForAnalysis(1000);
+    var data1 = getDataForAnalysis(100), data2 = getDataForAnalysis(10000);
     output(data1, data2);
-    document.getElementById('out1').innerHTML = getElemets(100, data1);
-    document.getElementById('out2').innerHTML = getElemets(1000, data2);
+    document.getElementById('out1').innerHTML = getElemets(data1);
+    document.getElementById('out2').innerHTML = getElemets(data2);
 
 
     var ctx3 = document.getElementById('myChart3').getContext('2d');
@@ -273,7 +261,7 @@ function change(intervals, method) {
             labels: getLabels(),
             datasets: [{ 
                 data: getDataForChart(data2),
-                label: "Frequency test (N=1000)",
+                label: "Frequency test (N=10000)",
                 borderColor: "rgb(255, 99, 132)",
                 fill: true
             }]

@@ -18,6 +18,12 @@ function playing() {
 	var position = document.getElementById('pos').value - 1;
 	var numInSecret = Number(String(secretNum).substring(position, position+1));
 
+    if(number > 9 || number < 0 || position < -1 || position > 3){
+        document.getElementById('num').value = "";
+        document.getElementById('pos').value = "";
+        return true;
+    }
+
 	if(number == numInSecret && document.getElementById('a' + position).innerHTML != number) {
 		document.getElementById('a' + position).innerHTML = number;
 		document.getElementById('a' + position).setAttribute("style", "font-size: 220%;");
@@ -33,6 +39,8 @@ function playing() {
         alert("YOU WON! CONGRATS.\nYOU GUESSED THE NUMBER FROM THE " + count + " ATTEMPT\nLET'S START A NEW GAME - PUSH 'OK'");
         location.reload(); 
     }
+
+    return false;
 }
 
 function check(str) {

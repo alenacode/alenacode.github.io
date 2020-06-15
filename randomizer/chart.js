@@ -127,7 +127,7 @@ function change(x, num, label) {
         var str = "";
         for (var i = 0; i < data.length; ++i)
             if (data[i] !== undefined) 
-                str += "x = " + data[i].x + "\t\ty = " + data[i].y +'\n';
+                str += "x = " + data[i].x.toFixed(5)*1 + "\t\ty = " + data[i].y.toFixed(5)*1 +'\n';
 
         document.getElementById('results').innerHTML = str;
     }
