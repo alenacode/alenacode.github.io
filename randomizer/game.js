@@ -36,7 +36,8 @@ function playing() {
     document.getElementById('pos').value = "";
     
     if(nums == 4) {
-        alert("YOU WON! CONGRATS.\nYOU GUESSED THE NUMBER FROM THE " + 12 - count + " ATTEMPT\nLET'S START A NEW GAME - PUSH 'OK'");
+	    var res = 12 - count;
+        alert("YOU WON! CONGRATS.\nYOU GUESSED THE NUMBER FROM THE " + res + " ATTEMPT\nLET'S START A NEW GAME - PUSH 'OK'");
         location.reload(); 
     }
 
