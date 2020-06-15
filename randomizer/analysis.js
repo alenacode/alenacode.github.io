@@ -1,11 +1,18 @@
 window.onload = change(10, 1);
 
 function change(intervals, method) {
+    var data = [];
+    var intervalsArr = [];
+    for(var j = 0.; j <= 1; j += (1/intervals).toFixed(2)*1 + 1e-16)
+        intervalsArr.push(Number(String(j).substr(0, 3)));
+    
+    intervalsArr.push(1);
+
     //  Метод срединных квадратов
     function midSquareMethod(amount) {
         var S1 = [];
         let Random = seed => {
-            if(seed < 1)
+            if(seed < 0.1)
                 seed = getRand();
             seed = middle(seed*seed);
             return seed;
@@ -25,7 +32,7 @@ function change(intervals, method) {
     function medianMethod(amount) {
         var S1 = [];
         let Random = (seed) => {
-            if(seed < 1)
+            if(seed < 0.1)
                 seed = getRand()*getRand();
             seed = middle(seed);
             return seed;
@@ -67,8 +74,8 @@ function change(intervals, method) {
     //  Линейный конгруэнтный метод
     function linearCongruentMethod(amount) {
         var S1 = [];
-        var a = 16807,  b = 12345,  m = 1073741823,  r = 2;
-        var a1 = 15805, b1 = 12345, m1 = 1048576823, r1 = 2;
+        var a = 16803,  b = 12345,  m = 106371823,  r = 2;
+        var a1 = 16801, b1 = 12345, m1 = 106856823, r1 = 2;
 
         for (var i = 0; i < amount; i++) {
             S1.push(r1 / m);
@@ -77,48 +84,6 @@ function change(intervals, method) {
         }
 
         return S1;
-    }
-
-    function intervalMap (data) {
-        var map = new Map();
-        var mapForOutput = new Map();
-
-        for(var j = (1/intervals).toFixed(3)/1; j < 1; j += (1/intervals).toFixed(3)/1){
-            map.set(j, 0);
-            for(var i = 0; i < data.length; ++i) {
-                if(data[i] < j && data[i] > (j - 1/intervals)){
-                    var val = map.get(j);
-                    map.set(j, val+1);
-                }
-            }
-        }
-
-        return map;
-    }
-
-    function getRand() {
-        return Math.floor((Math.random() * (100000 - 1 + 1)) + 1);
-    }
-
-    function getSum (data, num) {
-        var sum = 0;
-        for(var i = 0; i < data.length; ++i)
-            sum += data[i];
-        return sum / num;
-    }
-
-    function getDoubleData (data) {
-       for(var i = 0; i < data.length; ++i)
-            data[i] = data[i]**2;
-        return data; 
-    }
-
-    function getMx (data, num) {
-        return getSum(data, num);
-    }
-
-    function getDx (data, num, Mx) {
-        return getSum(getDoubleData(data), num) - Mx*Mx;
     }
 
     function middle(x) {
@@ -136,40 +101,81 @@ function change(intervals, method) {
         return Number(x);
     }
 
-    function getDataForChart(amount) {
-        var sequence = getDataForAnalysis(amount);      
-        var map = intervalMap(sequence); 
-        var data = [];
+    function getRand() {
+        return Math.floor((Math.random() * (100000 - 1 + 1)) + 1);
+    }
+
+    function getAvg (data, num) {
+        var sum = 0;
+        for(var i = 0; i < data.length; ++i)
+            sum += data[i];
+        return sum / num;
+    }
+
+    function getDoubleData (data) {
+       for(var i = 0; i < data.length; ++i)
+            data[i] = data[i]**2;
+        return data; 
+    }
+
+    function getMx (data, num) {
+        return getAvg(data, num);
+    }
+
+    function getDx (data, num, Mx) {
+        return getAvg(getDoubleData(data), num) - Mx*Mx;
+    }
+
+    function intervalMap (data) {
+        var map = new Map();
+
+        for(var j = 0.; j < intervalsArr.length; ++j){
+            map.set(intervalsArr[j], 0);
+            for(var i = 0; i < data.length; ++i) {
+                if(data[i] < intervalsArr[j+1] && data[i] > intervalsArr[j]) {
+                    var val = map.get(intervalsArr[j]);
+                    map.set(intervalsArr[j], val+1);
+                }
+            }
+        }
+       
+        return map;
+    }
+
+    function getDataForChart(data) {
+        var map = intervalMap(data); 
+        var result = [];
         var i = 0;
-        for (let val of map.values()) {
-            data.push(val);
+
+        for (var val of map.values()) {
+            result.push(val);
             ++i;
         }
 
-        return data;
+        return result;
     }
 
     function getDataForAnalysis(amount) {
-        var sequence = [];
+        var data = [];
         switch (method) {
           case 1:
-            sequence = midSquareMethod(amount);       
+            data = midSquareMethod(amount);       
             break;
           
           case 2:
-            sequence = medianMethod(amount);       
+            data = medianMethod(amount);       
             break;
           
           case 3:
-            sequence = mixingMethod(amount);       
+            data = mixingMethod(amount);       
             break;
           
           case 4:
-            sequence = linearCongruentMethod(amount);       
+            data = linearCongruentMethod(amount);       
             break;
         }  
 
-        return sequence;
+        return data;
     }
 
     function getLabels() {
@@ -180,12 +186,12 @@ function change(intervals, method) {
         return labels;
     }
 
-    function output() {
-        var sequence1 = getDataForAnalysis(100), sequence2 = getDataForAnalysis(10000);
-        document.getElementById('Mx100').innerHTML = getMx(sequence1, 100).toFixed(5)/1;
-        document.getElementById('Dx100').innerHTML = getDx(sequence1, 100, getMx(sequence1, 100)).toFixed(5)/1;
-        document.getElementById('Mx10000').innerHTML = getMx(sequence2, 10000).toFixed(5)/1;
-        document.getElementById('Dx10000').innerHTML = getDx(sequence2, 10000, getMx(sequence2, 10000)).toFixed(5)/1;
+    function output(data1, data2) {
+        var dt1 = data1.slice(), dt2 = data2.slice();
+        document.getElementById('Mx100').innerHTML = getMx(dt1, 100).toFixed(5)/1;
+        document.getElementById('Dx100').innerHTML = getDx(dt1, 100, getMx(dt1, 100)).toFixed(5)/1;
+        document.getElementById('Mx10000').innerHTML = getMx(dt2, 1000).toFixed(5)/1;
+        document.getElementById('Dx10000').innerHTML = getDx(dt2, 1000, getMx(dt2, 1000)).toFixed(5)/1;
     }
 
     function getRg() {
@@ -210,22 +216,21 @@ function change(intervals, method) {
         return labels;
     }
 
-    function getElemets (amount) {
-        var data = getDataForAnalysis(amount);
+    function getElemets (amount, data) {
         var str = "";
-        var map = new Map();
-
-        for(var j = 0; j < 1; j += (1/intervals).toFixed(3)/1)
+        for(var j = 0; j < intervalsArr.length; ++j)
             for(var i = 0; i < data.length; ++i)
-                if(data[i] < j && data[i] > j - (1/intervals))
-                    str += 'Interval = ' + String(j.toFixed(3)/1 - 0.1).substr(2, 1) + '\tNumber = ' + data[i] + '\n';
-                
+                if(data[i] < intervalsArr[j+1] && data[i] > intervalsArr[j]) 
+                    str += 'Interval = ' + intervalsArr[j] + ' - ' + intervalsArr[j+1] + '\tNumber = ' + data[i].toFixed(5)/1 + '\n';
+
         return str;
     }
 
-    document.getElementById('out1').innerHTML = getElemets(100);
-    document.getElementById('out2').innerHTML = getElemets(10000);
-    output();
+    var data1 = getDataForAnalysis(100), data2 = getDataForAnalysis(1000);
+    output(data1, data2);
+    document.getElementById('out1').innerHTML = getElemets(100, data1);
+    document.getElementById('out2').innerHTML = getElemets(1000, data2);
+
 
     var ctx3 = document.getElementById('myChart3').getContext('2d');
     var scatterChart3 = new Chart(ctx3, { 
@@ -233,7 +238,7 @@ function change(intervals, method) {
           data: {
             labels: getLabels(),
             datasets: [{ 
-                data: getDataForChart(100),
+                data: getDataForChart(data1),
                 label: "Frequency test (N=100)",
                 borderColor: "rgb(153, 102, 255)" ,
                 fill: true
@@ -267,8 +272,8 @@ function change(intervals, method) {
         data: {
             labels: getLabels(),
             datasets: [{ 
-                data: getDataForChart(10000),
-                label: "Frequency test (N=10000)",
+                data: getDataForChart(data2),
+                label: "Frequency test (N=1000)",
                 borderColor: "rgb(255, 99, 132)",
                 fill: true
             }]
