@@ -1,0 +1,130 @@
+body {
+	background: #fff;
+	margin: 0;
+	font-family: 'Exo 2', sans-serif;
+    font-size: 16px;
+}
+
+.wrapper {
+	width: 1280px;
+	margin: 0 auto;
+}
+
+.wrapper .text {
+	margin: 40px 100px;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+	background: none;
+	transition: .15s linear;
+}
+
+h1, h2 {
+	margin: 0 100px 0 100px;
+}
+
+.front-out h1 {
+	margin-top: 10px;
+	padding-top: 200px;
+}
+
+h1 {
+	margin-top: 50px;
+}
+
+.contacts {
+	height: 35px;
+	line-height: 35px;
+	background: #000;
+}
+
+.contacts a {
+	color: #fff;
+}
+
+.menu {
+	margin: 10px 0;
+}
+
+.contacts ul, .menu ul, .to_do ul{
+	list-style: none;
+	display: flex;
+	padding: 0; margin: 0;
+}
+
+.contacts ul, .to_do ul {
+	justify-content: space-around;
+}
+
+.menu li {
+	margin: 0 40px;
+	transition: .1s linear;
+	text-align: center;
+}
+
+.front-out h1 {
+	color: #000;
+	z-index: 111;
+	font-size: 3.5em;
+}
+
+.front-out {
+	background-image: url(../images/background.jpg);
+	height: 700px;
+	background-size: 100%; /* Современные браузеры */
+}
+
+/* iPads (вертикальная и горизонтальная) ----------- */
+
+@media (min-width: 768px) and (max-width: 1024px){ 
+	body {
+		font-size: 1.7em;
+	}
+
+	h1 {
+		font-size: 1.4em;
+		margin: 50px;
+	}
+
+	.menu {
+		margin: 30px 100px;
+	}
+
+	.menu li {
+		margin: 10px;
+		padding: 5px 10px;
+	}
+}
+
+
+/* Smartphones (вертикальная и горизонтальная ориентация) ----------- */
+
+@media (min-width : 320px) and (max-width : 480px) {
+	body {
+		font-size: 2.3em;
+	}
+
+	h1 {
+		font-size: 1.5em;
+		margin: 50px;
+	}
+
+	.contacts {
+		display: none;
+	}
+
+	.menu {
+		margin: 50px;
+	}
+
+	.menu li {
+		margin: 10px;
+		padding: 5px 10px;
+		font-size: 1.2em;
+	}
+}
+
+
+
