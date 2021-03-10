@@ -3,7 +3,7 @@ let count = 0;
 var xPosParent = 0;
 var yPosParent = 0;
 
-$(function() {
+$(document).ready(function() {
     xPosParent = $(".draggable_tree").offset().left;
     yPosParent = $(".draggable_tree").offset().top;
     function position() { 

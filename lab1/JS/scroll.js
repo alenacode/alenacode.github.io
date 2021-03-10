@@ -1,4 +1,4 @@
-$(function(){
+$(document).ready(function() {
   $('a[href^="#"]').on('click', function(event) {
     // отменяем стандартное действие
     event.preventDefault();
