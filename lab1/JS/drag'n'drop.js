@@ -24,7 +24,10 @@ $(document).ready(function() {
           
     $( ".draggable_tree" ).draggable({
         drag: position,
-    });           
+    });   
+    
+    $(".draggable_tree" ).draggable();
+
     $('.droppable').droppable({
         drop: function(event, ui) {
             elems.push(ui.draggable.context.className.split(' ')[0]);            
