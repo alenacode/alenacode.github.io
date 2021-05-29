@@ -5,11 +5,11 @@ html, body, .container {
 }
 
 body {
-  background: #e74;
   overflow: hidden;
-  background-image: url(./pictures/back.png);
+  background: url(./pictures/back.png) no-repeat center center fixed;
   background-size: cover;
-  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0
 }
 
 div#beach,
@@ -416,10 +416,9 @@ div#sea {
   right: 25px;
 }
 
-max-width: 768px {
+@media only screen and (max-width : 768px) {
   body {
-    background-image: url(./pictures/back_s.jpg);
-    background-repeat: repeat;
+    background-image: url(./pictures/back_s.png);
   }
 
   .icons {
@@ -427,7 +426,7 @@ max-width: 768px {
   }
 
   .icons .row span {
-    font-size: 105px;
+    font-size: 20px;
   }
 
   #people {
